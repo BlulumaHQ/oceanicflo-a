@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { NAV, CTA, type Lang } from "@/data/content";
 import { MenuIcon, CloseIcon, ArrowRight } from "./Icons";
-import logoAsset from "@/assets/oceanicflo-logo.jpg.asset.json";
 
 export function Header({ lang }: { lang: Lang }) {
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +47,7 @@ export function Header({ lang }: { lang: Lang }) {
       >
         <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
           <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
-            <img src={logoAsset.url} alt="Oceanicflo Construction" width={180} height={54} />
+            <img src="/images/oceanicflo/oceanicflo-logo.jpg" alt="Oceanicflo Construction" width={180} height={54} />
           </Link>
           <nav aria-label="Primary" className="primary-nav">
             {nav.map((n) => (

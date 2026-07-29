@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { NAV, SITE, type Lang, CTA } from "@/data/content";
 import { ArrowRight } from "./Icons";
-import logoAsset from "@/assets/oceanicflo-logo.jpg.asset.json";
 
 export function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
@@ -15,7 +14,7 @@ export function Footer({ lang }: { lang: Lang }) {
       <div className="container-editorial" style={{ paddingBlock: "72px 32px" }}>
         <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 32 }}>
           <div style={{ gridColumn: "span 4" }} className="footer-col">
-            <img src={logoAsset.url} alt="Oceanicflo Construction" style={{ display: "block", height: 56, width: "auto" }} />
+            <img src="/images/oceanicflo/oceanicflo-logo.jpg" alt="Oceanicflo Construction" style={{ display: "block", height: 56, width: "auto" }} />
             <p style={{ marginTop: 24, color: "var(--of-concrete)", maxWidth: 340, fontSize: 14, lineHeight: 1.7 }}>{t.statement}</p>
           </div>
           <div style={{ gridColumn: "span 2" }} className="footer-col">
