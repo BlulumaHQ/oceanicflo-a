@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { NAV, CTA, ALT_ROUTES, type Lang } from "@/data/content";
+import { NAV, CTA, type Lang } from "@/data/content";
 import { MenuIcon, CloseIcon, ArrowRight } from "./Icons";
+import logoAsset from "@/assets/oceanicflo-logo.jpg.asset.json";
 
 export function Header({ lang }: { lang: Lang }) {
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +32,6 @@ export function Header({ lang }: { lang: Lang }) {
 
   const nav = NAV[lang];
   const cta = CTA[lang];
-  const altPath = getAltPath(pathname, lang);
 
   return (
     <>
@@ -47,9 +47,8 @@ export function Header({ lang }: { lang: Lang }) {
         }}
       >
         <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
-          <Link to={lang === "en" ? "/" : "/zh"} className="wordmark" aria-label="Oceanicflo Construction — home">
-            <span className="wm-primary">OCEANICFLO</span>
-            <span className="wm-secondary">CONSTRUCTION</span>
+          <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
+            <img src={logoAsset.url} alt="Oceanicflo Construction" width={180} height={54} />
           </Link>
           <nav aria-label="Primary" className="primary-nav">
             {nav.map((n) => (
@@ -59,11 +58,15 @@ export function Header({ lang }: { lang: Lang }) {
             ))}
           </nav>
           <div className="header-tail">
-            <a href={altPath} className="lang-switch" aria-label={lang === "en" ? "Switch to Traditional Chinese" : "Switch to English"}>
+            <span
+              className="lang-switch is-disabled"
+              aria-disabled="true"
+              title="Language switcher disabled"
+            >
               <span className={lang === "en" ? "active" : ""}>EN</span>
               <span aria-hidden="true"> / </span>
               <span className={lang === "zh" ? "active" : ""}>繁中</span>
-            </a>
+            </span>
             <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary hidden-mobile">
               {cta.discuss}<ArrowRight />
             </Link>
@@ -77,13 +80,14 @@ export function Header({ lang }: { lang: Lang }) {
       <style>{`
         .skip-link { position: absolute; left: -9999px; top: 0; background: var(--of-ink); color: var(--of-bg); padding: 8px 14px; z-index: 100; }
         .skip-link:focus { left: 12px; top: 12px; }
-        .wordmark { display: inline-flex; flex-direction: column; text-decoration: none; color: var(--of-ink); line-height: 1; }
-        .wm-primary { font-family: var(--of-font-sans); font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
-        .wm-secondary { font-family: var(--of-font-sans); font-weight: 500; font-size: 10px; letter-spacing: 0.28em; color: var(--of-graphite); margin-top: 4px; }
+        .brand-mark { display: inline-flex; text-decoration: none; }
+        .brand-mark img { display: block; height: 48px; width: auto; object-fit: contain; }
         .primary-nav { display: flex; gap: 34px; align-items: center; }
         .header-tail { display: flex; align-items: center; gap: 18px; }
         .lang-switch { color: var(--of-ink); text-decoration: none; font-size: 12px; letter-spacing: 0.14em; font-weight: 600; }
         .lang-switch .active { color: var(--of-yellow-ink); border-bottom: 1px solid var(--of-yellow); padding-bottom: 2px; }
+        .lang-switch.is-disabled { opacity: 0.35; pointer-events: none; cursor: not-allowed; user-select: none; }
+        .lang-switch.is-disabled .active { border-bottom-color: transparent; color: inherit; }
         .menu-btn { display: none; background: transparent; border: 1px solid var(--of-hairline); width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--of-ink); cursor: pointer; border-radius: 2px; }
         .hidden-mobile { display: inline-flex; }
         @media (max-width: 960px) {
@@ -129,7 +133,6 @@ function MobileMenu({ lang, onClose }: { lang: Lang; onClose: () => void }) {
           <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary" onClick={onClose}>
             {cta.discuss} <ArrowRight />
           </Link>
-          <a href={cta.langOtherHref} className="btn btn-secondary">{cta.langOther}</a>
         </div>
         <div style={{ marginTop: 48, borderTop: "1px solid var(--of-hairline)", paddingTop: 24, color: "var(--of-graphite)", fontSize: 14 }}>
           <div>203-2680 Shell Road, Richmond, BC V6X 4C9</div>
@@ -142,15 +145,4 @@ function MobileMenu({ lang, onClose }: { lang: Lang; onClose: () => void }) {
       </div>
     </div>
   );
-}
-
-function getAltPath(pathname: string, lang: Lang): string {
-  for (const key of Object.keys(ALT_ROUTES) as Array<keyof typeof ALT_ROUTES>) {
-    const pair = ALT_ROUTES[key];
-    const cur = lang === "en" ? pair.en : pair.zh;
-    if (pathname === cur || pathname.replace(/\/$/, "") === cur) {
-      return lang === "en" ? pair.zh : pair.en;
-    }
-  }
-  return lang === "en" ? "/zh" : "/";
 }

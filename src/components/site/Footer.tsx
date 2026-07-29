@@ -1,23 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { NAV, SITE, type Lang, CTA } from "@/data/content";
 import { ArrowRight } from "./Icons";
+import logoAsset from "@/assets/oceanicflo-logo.jpg.asset.json";
 
 export function Footer({ lang }: { lang: Lang }) {
   const year = new Date().getFullYear();
   const nav = NAV[lang];
   const t = lang === "en"
-    ? { statement: "Integrated project delivery, design + build, general contracting, construction management, and project management.", navLabel: "Navigate", headOffice: "Head Office", contact: "Contact", langLabel: "Language", discuss: CTA.en.discuss }
-    : { statement: "整合式專案交付、設計與施工整合、總承包、施工管理及專案管理。", navLabel: "網站導覽", headOffice: "總公司", contact: "聯絡", langLabel: "語言", discuss: CTA.zh.discuss };
+    ? { statement: "Integrated project delivery, design + build, general contracting, construction management, and project management.", navLabel: "Navigate", headOffice: "Head Office", contact: "Contact", discuss: CTA.en.discuss }
+    : { statement: "整合式專案交付、設計與施工整合、總承包、施工管理及專案管理。", navLabel: "網站導覽", headOffice: "總公司", contact: "聯絡", discuss: CTA.zh.discuss };
   return (
     <footer style={{ background: "var(--of-ink)", color: "var(--of-bg)" }}>
       <div style={{ height: 1, background: "var(--of-yellow)", opacity: 0.6 }} />
       <div className="container-editorial" style={{ paddingBlock: "72px 32px" }}>
         <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 32 }}>
           <div style={{ gridColumn: "span 4" }} className="footer-col">
-            <div className="wordmark">
-              <span className="wm-primary" style={{ color: "var(--of-bg)", fontSize: 22, fontFamily: "var(--of-font-sans)", fontWeight: 800, letterSpacing: "-0.02em" }}>OCEANICFLO</span>
-              <span className="wm-secondary" style={{ color: "var(--of-concrete)", fontSize: 10, letterSpacing: "0.28em", fontWeight: 500, marginTop: 4, display: "block" }}>CONSTRUCTION</span>
-            </div>
+            <img src={logoAsset.url} alt="Oceanicflo Construction" style={{ display: "block", height: 56, width: "auto" }} />
             <p style={{ marginTop: 24, color: "var(--of-concrete)", maxWidth: 340, fontSize: 14, lineHeight: 1.7 }}>{t.statement}</p>
           </div>
           <div style={{ gridColumn: "span 2" }} className="footer-col">
@@ -38,12 +36,6 @@ export function Footer({ lang }: { lang: Lang }) {
               <a href={SITE.telLink} className="foot-link">{SITE.telDisplay}</a>
               <a href={`mailto:${SITE.email}`} className="foot-link">{SITE.email}</a>
               <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="foot-cta">{t.discuss} <ArrowRight /></Link>
-            </div>
-            <div style={{ marginTop: 22, display: "flex", gap: 12, alignItems: "center" }}>
-              <span className="foot-label" style={{ marginBottom: 0 }}>{t.langLabel}</span>
-              <a href="/" className={"foot-lang" + (lang === "en" ? " active" : "")}>EN</a>
-              <span style={{ color: "var(--of-graphite)" }}>/</span>
-              <a href="/zh" className={"foot-lang" + (lang === "zh" ? " active" : "")}>繁中</a>
             </div>
           </div>
         </div>
