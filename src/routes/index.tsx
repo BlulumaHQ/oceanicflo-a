@@ -1,24 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { HomePage } from "@/components/pages/HomePage";
+import { buildHead, LOCAL_BUSINESS_LD } from "@/components/site/SEO";
+import { IMAGES } from "@/data/content";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => buildHead({
+    lang: "en", routeKey: "home",
+    title: "Oceanicflo Construction — Richmond, BC | Integrated Project Delivery",
+    description: "Richmond-based construction company delivering integrated project delivery, design + build, general contracting, construction management, and project management across specialized industrial, commercial, residential, industrial, and institutional projects.",
+    ogImage: IMAGES.og,
+    structuredData: LOCAL_BUSINESS_LD,
+  }),
+  component: () => <HomePage lang="en" />,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
