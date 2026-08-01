@@ -5,6 +5,7 @@ import { FinalCTA } from "@/components/site/CTA";
 import { MetricsBlock } from "@/components/site/Metrics";
 import { SelectedWorkGallery } from "@/components/site/Gallery";
 import { HeroSlider } from "@/components/site/HeroSlider";
+import { ArrowRight } from "@/components/site/Icons";
 import { IMAGES, SERVICES, PROJECT_TYPES, CTA, type Lang } from "@/data/content";
 
 export function HomePage({ lang }: { lang: Lang }) {
@@ -104,6 +105,26 @@ export function HomePage({ lang }: { lang: Lang }) {
 }
 
 const EN = {
+  heroSlides: [
+    {
+      image: IMAGES.hero,
+      alt: "Concrete construction detail from an Oceanicflo project.",
+      eyebrow: "OCEANICFLO · RICHMOND, BRITISH COLUMBIA · EST. 2009",
+      titleA: "Building",
+      titleEm: "structured",
+      titleB: "construction outcomes.",
+      lead: "A Richmond-based construction company delivering integrated project delivery, design + build, general contracting, construction management, and project management.",
+    },
+    {
+      image: IMAGES.gallery[0],
+      alt: "Specialized industrial project delivered by Oceanicflo.",
+      eyebrow: "SPECIALIZED INDUSTRIAL · COMMERCIAL · INSTITUTIONAL",
+      titleA: "One coordinated",
+      titleEm: "working",
+      titleB: "structure.",
+      lead: "Owners, consultants, contractors, and operators inside a single delivery framework — from design and fabrication through to construction and handover.",
+    },
+  ],
   heroEyebrow: "OCEANICFLO · RICHMOND, BRITISH COLUMBIA · EST. 2009",
   heroTitleA: "Building",
   heroTitleEm: "structured",
@@ -140,6 +161,26 @@ const EN = {
 } as const;
 
 const ZH = {
+  heroSlides: [
+    {
+      image: IMAGES.hero,
+      alt: "Oceanicflo 專案中的混凝土施工細節。",
+      eyebrow: "OCEANICFLO · 卑詩省列治文 · 創立於 2009",
+      titleA: "以結構化的方式",
+      titleEm: "有條理地",
+      titleB: "完成施工。",
+      lead: "Oceanicflo 是一家位於列治文的建築公司，提供整合式專案交付、設計與施工整合、總承包、施工管理及專案管理服務。",
+    },
+    {
+      image: IMAGES.gallery[0],
+      alt: "Oceanicflo 完成的專業工業設施專案。",
+      eyebrow: "專業工業設施 · 商業空間 · 機構設施",
+      titleA: "在同一個",
+      titleEm: "協同",
+      titleB: "架構下完成。",
+      lead: "業主、顧問、承包商及營運人員在同一交付架構中合作，從設計、製作到施工與交付皆保持一致。",
+    },
+  ],
   heroEyebrow: "OCEANICFLO · 卑詩省列治文 · 創立於 2009",
   heroTitleA: "以結構化的方式",
   heroTitleEm: "有條理地",
