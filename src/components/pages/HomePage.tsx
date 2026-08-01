@@ -4,7 +4,7 @@ import { Datum } from "@/components/site/Datum";
 import { FinalCTA } from "@/components/site/CTA";
 import { MetricsBlock } from "@/components/site/Metrics";
 import { SelectedWorkGallery } from "@/components/site/Gallery";
-import { ArrowRight } from "@/components/site/Icons";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { IMAGES, SERVICES, PROJECT_TYPES, CTA, type Lang } from "@/data/content";
 
 export function HomePage({ lang }: { lang: Lang }) {
@@ -15,32 +15,17 @@ export function HomePage({ lang }: { lang: Lang }) {
   const galleryCaptions = t.galleryCaptions;
   return (
     <SiteLayout lang={lang}>
-      {/* Hero */}
-      <section style={{ position: "relative", overflow: "hidden" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 160px) clamp(60px, 8vw, 120px)", position: "relative" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,0.9fr)", gap: "clamp(28px,6vw,80px)", alignItems: "end" }} className="hero-grid">
-            <div>
-              <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
-                <span style={{ width: 32, height: 1, background: "var(--of-yellow)" }} aria-hidden="true" />
-                {t.heroEyebrow}
-              </div>
-              <h1 className={lang === "en" ? "display-en-xl" : "display-cjk"} style={{ margin: 0 }}>
-                {t.heroTitleA}<br />
-                {lang === "en" ? <em className="serif-em">{t.heroTitleEm}</em> : <span className="serif-em-cjk">{t.heroTitleEm}</span>}<br />
-                {t.heroTitleB}
-              </h1>
-              <p style={{ marginTop: 36, maxWidth: 520, fontSize: 17, color: "var(--of-graphite)", lineHeight: 1.7 }}>{t.heroLead}</p>
-              <div style={{ marginTop: 40, display: "flex", gap: 14, flexWrap: "wrap" }}>
-                <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary">{cta.discuss} <ArrowRight /></Link>
-                <Link to={lang === "en" ? "/projects" : "/zh/projects"} className="btn btn-secondary">{cta.viewWork} <ArrowRight /></Link>
-              </div>
-            </div>
-            <figure style={{ margin: 0, aspectRatio: "4/5", overflow: "hidden", background: "var(--of-hairline)" }}>
-              <img src={IMAGES.hero} alt={t.heroAlt} loading="eager" fetchPriority="high" width={1400} height={1750}
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-            </figure>
-          </div>
-          <div style={{ marginTop: 72, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, borderTop: "1px solid var(--of-hairline)", paddingTop: 32 }} className="hero-datums">
+      {/* Hero — full background image slider */}
+      <HeroSlider
+        lang={lang}
+        slides={t.heroSlides}
+        ctaPrimary={cta.discuss}
+        ctaSecondary={cta.viewWork}
+      />
+
+      <section>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(40px, 6vw, 64px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, borderTop: "1px solid var(--of-hairline)", paddingTop: 32 }} className="hero-datums">
             {t.heroDatums.map((d, i) => (
               <div key={i} style={{ fontSize: 12, color: "var(--of-graphite)", lineHeight: 1.6 }}>
                 <span style={{ color: "var(--of-yellow-ink)", background: "var(--of-yellow)", padding: "1px 6px", fontWeight: 700, fontSize: 10, letterSpacing: "0.18em", marginRight: 8 }}>0{i + 1}</span>
@@ -49,7 +34,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             ))}
           </div>
         </div>
-        <style>{`@media (max-width: 900px){ .hero-grid { grid-template-columns: 1fr !important; } .hero-datums { grid-template-columns: 1fr 1fr !important; } }`}</style>
+        <style>{`@media (max-width: 900px){ .hero-datums { grid-template-columns: 1fr 1fr !important; } }`}</style>
       </section>
 
       {/* Introduction */}
