@@ -112,7 +112,7 @@ const EN = {
       image: IMAGES.gallery[0],
       alt: "Specialized industrial project delivered by Oceanicflo.",
       eyebrow: "SPECIALIZED INDUSTRIAL · COMMERCIAL · INSTITUTIONAL",
-      titleA: "One coordinated",
+      titleA: "Coordinated",
       titleEm: "working",
       titleB: "structure.",
       lead: "Owners, consultants, contractors, and operators inside a single delivery framework — from design and fabrication through to construction and handover.",
