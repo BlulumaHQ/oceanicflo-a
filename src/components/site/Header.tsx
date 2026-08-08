@@ -128,12 +128,12 @@ function MobileMenu({ lang, onClose }: { lang: Lang; onClose: () => void }) {
             </Link>
           ))}
         </nav>
-        <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 14 }}>
+        <div style={{ marginTop: 35, display: "flex", flexDirection: "column", gap: 14 }}>
           <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary" onClick={onClose}>
             {cta.discuss} <ArrowRight />
           </Link>
         </div>
-        <div style={{ marginTop: 48, borderTop: "1px solid var(--of-hairline)", paddingTop: 24, color: "var(--of-graphite)", fontSize: 14 }}>
+        <div style={{ marginTop: 35, borderTop: "1px solid var(--of-hairline)", paddingTop: 24, color: "var(--of-graphite)", fontSize: 14 }}>
           <div>203-2680 Shell Road, Richmond, BC V6X 4C9</div>
           <div style={{ marginTop: 6 }}>
             <a href="tel:+16048182088" style={{ color: "inherit", textDecoration: "none" }}>604-818-2088</a>

@@ -37,8 +37,8 @@ export function AboutPage({ lang }: { lang: Lang }) {
   return (
     <SiteLayout lang={lang}>
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px) clamp(60px, 8vw, 100px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 0.9fr", gap: "clamp(28px, 6vw, 96px)", alignItems: "end" }} className="about-hero">
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px) clamp(44px, 6.2vw, 74px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 0.9fr", gap: "clamp(21px, 4.7vw, 71px)", alignItems: "end" }} className="about-hero">
             <div>
               <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 24 }}>{t.eyebrow}</div>
               <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0 }}>{t.title}</h1>
@@ -52,8 +52,8 @@ export function AboutPage({ lang }: { lang: Lang }) {
         </div>
       </section>
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(72px, 10vw, 120px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(24px, 4vw, 64px)" }} className="pillars-grid">
+        <div className="container-editorial" style={{ paddingBlock: "clamp(53px, 7.8vw, 89px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(18px, 3.1vw, 47px)" }} className="pillars-grid">
             {t.pillars.map((p) => (
               <Datum key={p.num} number={p.num} label={lang === "en" ? "PRINCIPLE" : "原則"}>
                 <h3 style={{ margin: 0, fontFamily: lang === "en" ? "var(--of-font-sans)" : "var(--of-font-cjk)", fontSize: "clamp(1.5rem,2.4vw,2rem)", fontWeight: 700, letterSpacing: lang === "en" ? "-0.02em" : "-0.01em", lineHeight: 1.2 }}>{p.title}</h3>

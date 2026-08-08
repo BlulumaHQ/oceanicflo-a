@@ -11,11 +11,11 @@ export function ProjectsPage({ lang }: { lang: Lang }) {
   return (
     <SiteLayout lang={lang}>
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px) clamp(48px, 6vw, 80px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px) clamp(36px, 4.7vw, 59px)" }}>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 24 }}>{t.eyebrow}</div>
           <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0 }}>{t.title}</h1>
           <p style={{ marginTop: 28, maxWidth: 720, fontSize: 18, color: "var(--of-graphite)", lineHeight: 1.75 }}>{t.lead}</p>
-          <div style={{ marginTop: 44, display: "flex", flexWrap: "wrap", gap: 10 }}>
+          <div style={{ marginTop: 32, display: "flex", flexWrap: "wrap", gap: 10 }}>
             {types.map((tp, i) => (
               <span key={tp} style={{ padding: "8px 14px", border: "1px solid var(--of-hairline)", fontSize: 12, letterSpacing: lang === "en" ? "0.12em" : "0.04em", color: "var(--of-graphite)", fontWeight: 600, textTransform: lang === "en" ? "uppercase" : "none" }}>
                 <span style={{ color: "var(--of-yellow-ink)", background: "var(--of-yellow)", padding: "1px 6px", marginRight: 8, letterSpacing: "0.14em" }}>0{i + 1}</span>{tp}
@@ -25,7 +25,7 @@ export function ProjectsPage({ lang }: { lang: Lang }) {
         </div>
       </section>
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(60px, 10vw, 120px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(44px, 7.8vw, 89px)" }}>
           <SelectedWorkGallery captions={t.captions} lang={lang} />
         </div>
       </section>

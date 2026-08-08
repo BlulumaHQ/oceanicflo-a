@@ -24,7 +24,7 @@ export function SelectedWorkGallery({ captions, lang }: { captions: readonly str
           onNext={() => setOpenIdx((i) => (i! + 1) % IMAGES.gallery.length)} />
       )}
       <style>{`
-        .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: clamp(200px, 24vw, 320px); gap: clamp(16px, 2.4vw, 32px); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: clamp(148px, 18.7vw, 237px); gap: clamp(12px, 1.9vw, 24px); }
         .gallery-cell { border: 0; background: transparent; padding: 0; text-align: left; cursor: pointer; display: flex; flex-direction: column; gap: 12px; color: inherit; }
         .gallery-media { overflow: hidden; background: var(--of-hairline); position: relative; width: 100%; flex: 1; min-height: 0; }
         .gallery-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 700ms ease; }
@@ -43,14 +43,14 @@ export function SelectedWorkGallery({ captions, lang }: { captions: readonly str
         /* Row 3: full-width banner */
         .g-6 { grid-column: span 12; grid-row: span 1; }
         @media (max-width: 960px) {
-          .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(180px, 30vw, 260px); }
+          .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(133px, 23.4vw, 192px); }
           .g-1 { grid-column: span 6; }
           .g-2 { grid-column: span 6; }
           .g-3, .g-4, .g-5 { grid-column: span 2; }
           .g-6 { grid-column: span 6; }
         }
         @media (max-width: 560px) {
-          .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: clamp(200px, 60vw, 280px); }
+          .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: clamp(148px, 46.8vw, 207px); }
           .g-1, .g-2, .g-3, .g-4, .g-5, .g-6 { grid-column: span 1; }
         }
       `}</style>

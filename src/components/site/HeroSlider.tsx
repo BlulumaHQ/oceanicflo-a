@@ -86,7 +86,7 @@ export function HeroSlider({
       {/* Content */}
       <div
         className="container-editorial"
-        style={{ position: "relative", paddingBlock: "clamp(96px, 14vw, 160px) clamp(48px, 7vw, 88px)", width: "100%" }}
+        style={{ position: "relative", paddingBlock: "clamp(71px, 10.9vw, 118px) clamp(36px, 5.5vw, 65px)", width: "100%" }}
       >
         {slides.map((s, i) => (
           <div
@@ -134,7 +134,7 @@ export function HeroSlider({
         </div>
 
         {/* Slide indicators */}
-        <div style={{ marginTop: 44, display: "flex", gap: 16, alignItems: "center" }}>
+        <div style={{ marginTop: 32, display: "flex", gap: 16, alignItems: "center" }}>
           {slides.map((s, i) => (
             <button
               key={"dot" + i}
