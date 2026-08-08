@@ -122,6 +122,16 @@
   opacity: 1;
 }
 
+@media (max-width: 560px) {
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .eyebrow-cjk {
+    font-size: 13px;
+  }
+}
+
 @utility display-en {
   font-family: var(--of-font-sans);
   font-weight: 700;
