@@ -14,11 +14,12 @@ export function ProjectCard({
   index: number;
   eager?: boolean;
 }) {
-  const base = lang === "en" ? "/projects" : "/zh/projects";
+  const detailTo = lang === "en" ? "/projects/$slug" : "/zh/projects/$slug";
   const cats = project.categories.map((c) => c.name).join(" · ");
   return (
     <Link
-      to={`${base}/${project.slug}`}
+      to={detailTo}
+      params={{ slug: project.slug }}
       className="pcard reveal"
       aria-label={projectTitle(project, lang)}
     >

@@ -11,6 +11,7 @@ export function CmsSelectedWork({ lang }: { lang: Lang }) {
   const { data } = useSuspenseQuery(portfolioQueryOptions);
   const { projects, categories } = data;
   const base = lang === "en" ? "/projects" : "/zh/projects";
+  const detailTo = lang === "en" ? "/projects/$slug" : "/zh/projects/$slug";
 
   const used = new Set<string>();
   const picks: Array<{ label: string; slug: string; project: PortfolioProject }> = [];
@@ -26,7 +27,7 @@ export function CmsSelectedWork({ lang }: { lang: Lang }) {
     <>
       <div className="sw-grid">
         {picks.map((p, i) => (
-          <Link key={p.slug} to={`${base}/${p.project.slug}`} className={`sw-cell sw-${i + 1}`}>
+          <Link key={p.slug} to={detailTo} params={{ slug: p.project.slug }} className={`sw-cell sw-${i + 1}`}>
             <div className="sw-media">
               <img src={p.project.cover!} alt={projectTitle(p.project, lang)} loading={i < 2 ? "eager" : "lazy"} />
             </div>

@@ -41,6 +41,7 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
   const { projects } = data;
   const idx = projects.findIndex((p) => p.slug === slug);
   const base = lang === "en" ? "/projects" : "/zh/projects";
+  const detailTo = lang === "en" ? "/projects/$slug" : "/zh/projects/$slug";
 
   if (idx === -1) {
     return (
@@ -49,7 +50,7 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
           <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0 }}>
             {lang === "en" ? "Project not found." : "找不到專案。"}
           </h1>
-          <Link to={base} className="btn btn-secondary" style={{ marginTop: 28 }}>
+          <Link to={base} search={{}} className="btn btn-secondary" style={{ marginTop: 28 }}>
             {lang === "en" ? "Back to all projects" : "返回所有專案"} <ArrowRight />
           </Link>
         </div>
@@ -75,7 +76,7 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
     <SiteLayout lang={lang}>
       <section>
         <div className="container-editorial" style={{ paddingBlock: "clamp(40px, 5.6vw, 68px) clamp(20px, 2.6vw, 32px)" }}>
-          <Link to={base} className="pd-back">
+          <Link to={base} search={{}} className="pd-back">
             <ChevronLeft /> {lang === "en" ? "ALL PROJECTS" : "所有專案"}
           </Link>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginTop: 22 }}>
@@ -145,11 +146,11 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
           </div>
 
           <nav className="pd-nav" aria-label={lang === "en" ? "Project navigation" : "專案導覽"}>
-            <Link to={`${base}/${prev.slug}`} className="pd-nav-link">
+            <Link to={detailTo} params={{ slug: prev.slug }} className="pd-nav-link">
               <span className="pd-nav-lab"><ChevronLeft /> {lang === "en" ? "PREVIOUS" : "上一個"}</span>
               <span className="pd-nav-title">{projectTitle(prev, lang)}</span>
             </Link>
-            <Link to={`${base}/${next.slug}`} className="pd-nav-link pd-nav-right">
+            <Link to={detailTo} params={{ slug: next.slug }} className="pd-nav-link pd-nav-right">
               <span className="pd-nav-lab">{lang === "en" ? "NEXT" : "下一個"} <ChevronRight /></span>
               <span className="pd-nav-title">{projectTitle(next, lang)}</span>
             </Link>
