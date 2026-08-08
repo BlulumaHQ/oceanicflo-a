@@ -10,14 +10,20 @@ export interface SeoInput {
   description: string;
   ogImage?: string;
   structuredData?: object | object[];
+  /** Overrides ALT_ROUTES for dynamic routes (e.g. project detail pages). */
+  altPair?: { en: string; zh: string };
 }
 
 export function buildHead(input: SeoInput): { meta: MetaEntry[]; links: LinkEntry[]; scripts?: Array<{ type: string; children: string }> } {
-  const pair = ALT_ROUTES[input.routeKey];
+  const pair = input.altPair ?? ALT_ROUTES[input.routeKey];
   const enUrl = SITE.domain + pair.en;
   const zhUrl = SITE.domain + pair.zh;
   const canonical = input.lang === "en" ? enUrl : zhUrl;
-  const ogImgAbs = input.ogImage ? SITE.domain + input.ogImage : undefined;
+  const ogImgAbs = input.ogImage
+    ? input.ogImage.startsWith("http")
+      ? input.ogImage
+      : SITE.domain + input.ogImage
+    : undefined;
 
   const meta: MetaEntry[] = [
     { title: input.title },

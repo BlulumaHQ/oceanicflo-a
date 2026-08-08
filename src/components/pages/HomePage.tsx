@@ -3,17 +3,15 @@ import { SiteLayout } from "@/components/site/Layout";
 import { Datum } from "@/components/site/Datum";
 import { FinalCTA } from "@/components/site/CTA";
 import { MetricsBlock } from "@/components/site/Metrics";
-import { SelectedWorkGallery } from "@/components/site/Gallery";
+import { CmsSelectedWork } from "@/components/site/CmsSelectedWork";
 import { HeroSlider } from "@/components/site/HeroSlider";
 import { ArrowRight } from "@/components/site/Icons";
-import { IMAGES, SERVICES, PROJECT_TYPES, CTA, type Lang } from "@/data/content";
+import { IMAGES, SERVICES, CTA, type Lang } from "@/data/content";
 
 export function HomePage({ lang }: { lang: Lang }) {
   const t = lang === "en" ? EN : ZH;
   const cta = CTA[lang];
   const services = SERVICES[lang];
-  const types = PROJECT_TYPES[lang];
-  const galleryCaptions = t.galleryCaptions;
   return (
     <SiteLayout lang={lang}>
       {/* Hero — full background image slider */}
@@ -90,12 +88,7 @@ export function HomePage({ lang }: { lang: Lang }) {
               <Link to={lang === "en" ? "/projects" : "/zh/projects"} className="btn btn-secondary">{cta.viewAll} <ArrowRight /></Link>
             </div>
           </div>
-          <SelectedWorkGallery captions={galleryCaptions} lang={lang} />
-          <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 12 }}>
-            {types.map((tp) => (
-              <span key={tp} style={{ padding: "8px 14px", border: "1px solid var(--of-hairline)", fontSize: 12, letterSpacing: lang === "en" ? "0.12em" : "0.04em", color: "var(--of-graphite)", fontWeight: 600, textTransform: lang === "en" ? "uppercase" : "none" }}>{tp}</span>
-            ))}
-          </div>
+          <CmsSelectedWork lang={lang} />
         </div>
       </section>
 
