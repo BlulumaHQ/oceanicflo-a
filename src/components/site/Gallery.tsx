@@ -43,14 +43,14 @@ export function SelectedWorkGallery({ captions, lang }: { captions: readonly str
         /* Row 3: full-width banner */
         .g-6 { grid-column: span 12; grid-row: span 1; }
         @media (max-width: 960px) {
-          .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(133px, 23.4vw, 192px); }
+          .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: clamp(180px, 30vw, 260px); }
           .g-1 { grid-column: span 6; }
           .g-2 { grid-column: span 6; }
           .g-3, .g-4, .g-5 { grid-column: span 2; }
           .g-6 { grid-column: span 6; }
         }
         @media (max-width: 560px) {
-          .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: clamp(148px, 46.8vw, 207px); }
+          .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: clamp(200px, 55vw, 280px); }
           .g-1, .g-2, .g-3, .g-4, .g-5, .g-6 { grid-column: span 1; }
         }
       `}</style>
