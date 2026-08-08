@@ -106,18 +106,30 @@
 }
 
 @utility eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--of-graphite);
+  color: var(--of-ink);
+  opacity: 1;
 }
 
 @utility eyebrow-cjk {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--of-graphite);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--of-ink);
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .eyebrow-cjk {
+    font-size: 13px;
+  }
 }
 
 @utility display-en {

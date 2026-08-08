@@ -25,7 +25,7 @@ export function HomePage({ lang }: { lang: Lang }) {
       />
 
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(40px, 6vw, 64px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(30px, 4.7vw, 47px)" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, borderTop: "1px solid var(--of-hairline)", paddingTop: 32 }} className="hero-datums">
             {t.heroDatums.map((d, i) => (
               <div key={i} style={{ fontSize: 12, color: "var(--of-graphite)", lineHeight: 1.6 }}>
@@ -40,8 +40,8 @@ export function HomePage({ lang }: { lang: Lang }) {
 
       {/* Introduction */}
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: "clamp(28px, 6vw, 96px)" }} className="two-col">
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: "clamp(21px, 4.7vw, 71px)" }} className="two-col">
             <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"}>{t.introEyebrow}</div>
             <Datum>
               <h2 style={{ fontFamily: lang === "en" ? "var(--of-font-sans)" : "var(--of-font-cjk)", fontSize: "clamp(1.75rem, 3vw, 2.75rem)", lineHeight: 1.25, letterSpacing: lang === "en" ? "-0.02em" : "-0.01em", fontWeight: 600, margin: 0, maxWidth: 820 }}>
@@ -58,7 +58,7 @@ export function HomePage({ lang }: { lang: Lang }) {
 
       {/* Services preview */}
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 56 }}>
             <div>
               <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.servicesEyebrow}</div>
@@ -82,7 +82,7 @@ export function HomePage({ lang }: { lang: Lang }) {
 
       {/* Selected Work */}
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
           <div style={{ marginBottom: 56 }}>
             <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.workEyebrow}</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-end", justifyContent: "space-between" }}>
@@ -91,7 +91,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             </div>
           </div>
           <SelectedWorkGallery captions={galleryCaptions} lang={lang} />
-          <div style={{ marginTop: 56, display: "flex", flexWrap: "wrap", gap: 12 }}>
+          <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 12 }}>
             {types.map((tp) => (
               <span key={tp} style={{ padding: "8px 14px", border: "1px solid var(--of-hairline)", fontSize: 12, letterSpacing: lang === "en" ? "0.12em" : "0.04em", color: "var(--of-graphite)", fontWeight: 600, textTransform: lang === "en" ? "uppercase" : "none" }}>{tp}</span>
             ))}

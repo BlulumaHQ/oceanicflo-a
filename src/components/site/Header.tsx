@@ -45,9 +45,9 @@ export function Header({ lang }: { lang: Lang }) {
           transition: "background 300ms ease, border-color 300ms ease",
         }}
       >
-        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
+        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 78, paddingBlock: 6 }}>
           <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
-            <img src="/images/oceanicflo/oceanicflo-logo.jpg" alt="Oceanicflo Construction" width={180} height={54} />
+            <img src="/images/oceanicflo/oceanicflo-logo.jpg" alt="Oceanicflo Construction" width={240} height={72} />
           </Link>
           <nav aria-label="Primary" className="primary-nav">
             {nav.map((n) => (
@@ -80,7 +80,8 @@ export function Header({ lang }: { lang: Lang }) {
         .skip-link { position: absolute; left: -9999px; top: 0; background: var(--of-ink); color: var(--of-bg); padding: 8px 14px; z-index: 100; }
         .skip-link:focus { left: 12px; top: 12px; }
         .brand-mark { display: inline-flex; text-decoration: none; }
-        .brand-mark img { display: block; height: 48px; width: auto; object-fit: contain; }
+        .brand-mark img { display: block; height: 66px; width: auto; object-fit: contain; }
+        @media (max-width: 560px) { .brand-mark img { height: 52px; } }
         .primary-nav { display: flex; gap: 34px; align-items: center; }
         .header-tail { display: flex; align-items: center; gap: 18px; }
         .lang-switch { color: var(--of-ink); text-decoration: none; font-size: 12px; letter-spacing: 0.14em; font-weight: 600; }
@@ -128,12 +129,12 @@ function MobileMenu({ lang, onClose }: { lang: Lang; onClose: () => void }) {
             </Link>
           ))}
         </nav>
-        <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 14 }}>
+        <div style={{ marginTop: 35, display: "flex", flexDirection: "column", gap: 14 }}>
           <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary" onClick={onClose}>
             {cta.discuss} <ArrowRight />
           </Link>
         </div>
-        <div style={{ marginTop: 48, borderTop: "1px solid var(--of-hairline)", paddingTop: 24, color: "var(--of-graphite)", fontSize: 14 }}>
+        <div style={{ marginTop: 35, borderTop: "1px solid var(--of-hairline)", paddingTop: 24, color: "var(--of-graphite)", fontSize: 14 }}>
           <div>203-2680 Shell Road, Richmond, BC V6X 4C9</div>
           <div style={{ marginTop: 6 }}>
             <a href="tel:+16048182088" style={{ color: "inherit", textDecoration: "none" }}>604-818-2088</a>

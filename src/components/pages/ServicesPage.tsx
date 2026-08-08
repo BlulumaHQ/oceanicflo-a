@@ -12,17 +12,17 @@ export function ServicesPage({ lang }: { lang: Lang }) {
   return (
     <SiteLayout lang={lang}>
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px) clamp(60px, 8vw, 100px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px) clamp(44px, 6.2vw, 74px)" }}>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 24 }}>{t.eyebrow}</div>
           <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0, maxWidth: 1100 }}>{t.title}</h1>
           <p style={{ marginTop: 32, maxWidth: 720, fontSize: 18, color: "var(--of-graphite)", lineHeight: 1.75 }}>{t.lead}</p>
         </div>
       </section>
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(64px, 10vw, 120px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(47px, 7.8vw, 89px)" }}>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {services.map((s, i) => (
-              <li key={s.num} className="reveal svc-row" style={{ display: "grid", gridTemplateColumns: "120px 1fr 1.6fr", gap: "clamp(24px, 4vw, 56px)", padding: "clamp(40px, 6vw, 72px) 0", borderTop: i === 0 ? "1px solid var(--of-hairline)" : "none", borderBottom: "1px solid var(--of-hairline)", alignItems: "start" }}>
+              <li key={s.num} className="reveal svc-row" style={{ display: "grid", gridTemplateColumns: "120px 1fr 1.6fr", gap: "clamp(18px, 3.1vw, 41px)", padding: "clamp(30px, 4.7vw, 53px) 0", borderTop: i === 0 ? "1px solid var(--of-hairline)" : "none", borderBottom: "1px solid var(--of-hairline)", alignItems: "start" }}>
                 <div style={{ fontSize: 12, letterSpacing: "0.2em", color: "var(--of-yellow-ink)", background: "var(--of-yellow)", padding: "4px 8px", fontWeight: 700, alignSelf: "start", display: "inline-block", width: "fit-content" }}>SERVICE / {s.num}</div>
                 <h2 style={{ margin: 0, fontFamily: lang === "en" ? "var(--of-font-sans)" : "var(--of-font-cjk)", fontSize: "clamp(1.5rem, 3vw, 2.5rem)", fontWeight: 700, letterSpacing: lang === "en" ? "-0.025em" : "-0.01em", lineHeight: 1.15 }}>{s.title}</h2>
                 <Datum>
@@ -37,10 +37,10 @@ export function ServicesPage({ lang }: { lang: Lang }) {
         </div>
       </section>
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.stagesEyebrow}</div>
           <h2 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0, maxWidth: 900 }}>{t.stagesHeading}</h2>
-          <div style={{ marginTop: 56, display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 24 }} className="stages-grid">
+          <div style={{ marginTop: 40, display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 24 }} className="stages-grid">
             {stages.map((s) => (
               <div key={s.num} className="reveal" style={{ borderTop: "1px solid var(--of-yellow)", paddingTop: 24 }}>
                 <div style={{ fontSize: 12, letterSpacing: "0.2em", color: "var(--of-yellow-ink)", background: "var(--of-yellow)", padding: "2px 6px", fontWeight: 700, display: "inline-block", marginBottom: 20 }}>{s.num}</div>

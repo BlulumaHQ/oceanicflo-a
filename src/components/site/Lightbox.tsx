@@ -38,7 +38,7 @@ export function Lightbox({
         <div style={{ fontSize: 12, letterSpacing: "0.2em", color: "var(--of-yellow)", fontWeight: 600 }}>{captions[index]}</div>
         <button onClick={onClose} aria-label={closeLabel} className="lb-btn"><CloseIcon /></button>
       </div>
-      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 clamp(16px, 4vw, 60px)" }}>
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 clamp(12px, 3.1vw, 44px)" }}>
         <button onClick={onPrev} aria-label={prevLabel} className="lb-btn lb-side"><ChevronLeft /></button>
         <img src={images[index]} alt={captions[index]} style={{ maxWidth: "min(1400px, 100%)", maxHeight: "80vh", objectFit: "contain" }} />
         <button onClick={onNext} aria-label={nextLabel} className="lb-btn lb-side"><ChevronRight /></button>

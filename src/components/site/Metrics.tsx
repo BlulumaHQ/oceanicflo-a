@@ -5,7 +5,7 @@ export function MetricsBlock({ lang, label }: { lang: Lang; label: string }) {
   const note = METRICS.note[lang];
   return (
     <section style={{ background: "var(--of-bg)", borderTop: "1px solid var(--of-hairline)", borderBottom: "1px solid var(--of-hairline)" }}>
-      <div className="container-editorial" style={{ paddingBlock: "clamp(72px, 10vw, 120px)" }}>
+      <div className="container-editorial" style={{ paddingBlock: "clamp(53px, 7.8vw, 89px)" }}>
         <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 44 }}>{label}</div>
         <ul className="metrics-row" style={{ listStyle: "none", padding: 0, margin: 0 }}>
           {items.map((m, i) => (

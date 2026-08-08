@@ -29,15 +29,15 @@ export function ContactPage({ lang }: { lang: Lang }) {
   return (
     <SiteLayout lang={lang}>
       <section>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(80px, 12vw, 140px) clamp(48px, 6vw, 80px)" }}>
+        <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px) clamp(36px, 4.7vw, 59px)" }}>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 24 }}>{t.eyebrow}</div>
           <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0 }}>{t.title}</h1>
           <p style={{ marginTop: 28, maxWidth: 720, fontSize: 18, color: "var(--of-graphite)", lineHeight: 1.75 }}>{t.lead}</p>
         </div>
       </section>
       <section style={{ background: "var(--of-paper)" }}>
-        <div className="container-editorial" style={{ paddingBlock: "clamp(60px, 10vw, 120px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: "clamp(40px, 6vw, 96px)" }} className="contact-grid">
+        <div className="container-editorial" style={{ paddingBlock: "clamp(44px, 7.8vw, 89px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: "clamp(30px, 4.7vw, 71px)" }} className="contact-grid">
             <div>
               <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 24 }}>{labels.heading}</div>
               <p style={{ margin: "0 0 32px", color: "var(--of-graphite)", fontSize: 16, lineHeight: 1.7, maxWidth: 620 }}>{labels.support}</p>
