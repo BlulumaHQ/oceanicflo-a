@@ -186,15 +186,15 @@ export const PROJECT_TYPES = {
 export const METRICS = {
   en: [
     { value: "2009", label: "Year Established" },
-    { value: "47", label: "Completed and Current Projects" },
-    { value: "23 M", label: "Construction Cost" },
-    { value: "99 M", label: "Construction Consultation" },
+    { value: "55", label: "Completed and Current Projects" },
+    { value: "25M", label: "Construction Cost" },
+    { value: "100+", label: "Construction Consultation" },
   ],
   zh: [
     { value: "2009", label: "創立年份" },
-    { value: "47", label: "已完成及進行中的專案" },
-    { value: "23 M", label: "工程造價" },
-    { value: "99 M", label: "工程顧問" },
+    { value: "55", label: "已完成及進行中的專案" },
+    { value: "25M", label: "工程造價" },
+    { value: "100+", label: "工程顧問" },
   ],
   note: {
     en: "Figures presented from Oceanicflo's existing company information.",
