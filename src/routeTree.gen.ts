@@ -11,15 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ZhIndexRouteImport } from './routes/zh/index'
+import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as ZhServicesRouteImport } from './routes/zh/services'
-import { Route as ZhProjectsRouteImport } from './routes/zh/projects'
 import { Route as ZhContactRouteImport } from './routes/zh/contact'
 import { Route as ZhAboutRouteImport } from './routes/zh/about'
+import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
+import { Route as ZhProjectsIndexRouteImport } from './routes/zh/projects/index'
+import { Route as ZhProjectsSlugRouteImport } from './routes/zh/projects/$slug'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -30,11 +32,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -57,14 +54,14 @@ const ZhIndexRoute = ZhIndexRouteImport.update({
   path: '/zh/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ZhServicesRoute = ZhServicesRouteImport.update({
   id: '/zh/services',
   path: '/zh/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ZhProjectsRoute = ZhProjectsRouteImport.update({
-  id: '/zh/projects',
-  path: '/zh/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZhContactRoute = ZhContactRouteImport.update({
@@ -77,6 +74,21 @@ const ZhAboutRoute = ZhAboutRouteImport.update({
   path: '/zh/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhProjectsIndexRoute = ZhProjectsIndexRouteImport.update({
+  id: '/zh/projects/',
+  path: '/zh/projects/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhProjectsSlugRoute = ZhProjectsSlugRouteImport.update({
+  id: '/zh/projects/$slug',
+  path: '/zh/projects/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -87,44 +99,50 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/zh/about': typeof ZhAboutRoute
   '/zh/contact': typeof ZhContactRoute
-  '/zh/projects': typeof ZhProjectsRoute
   '/zh/services': typeof ZhServicesRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/zh/projects/$slug': typeof ZhProjectsSlugRoute
+  '/zh/projects/': typeof ZhProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/zh/about': typeof ZhAboutRoute
   '/zh/contact': typeof ZhContactRoute
-  '/zh/projects': typeof ZhProjectsRoute
   '/zh/services': typeof ZhServicesRoute
+  '/projects': typeof ProjectsIndexRoute
   '/zh': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/zh/projects/$slug': typeof ZhProjectsSlugRoute
+  '/zh/projects': typeof ZhProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/$slug': typeof ProjectsSlugRoute
   '/zh/about': typeof ZhAboutRoute
   '/zh/contact': typeof ZhContactRoute
-  '/zh/projects': typeof ZhProjectsRoute
   '/zh/services': typeof ZhServicesRoute
+  '/projects/': typeof ProjectsIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/zh/projects/$slug': typeof ZhProjectsSlugRoute
+  '/zh/projects/': typeof ZhProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -132,58 +150,66 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/zh/about'
     | '/zh/contact'
-    | '/zh/projects'
     | '/zh/services'
+    | '/projects/'
     | '/zh/'
     | '/api/public/contact'
+    | '/zh/projects/$slug'
+    | '/zh/projects/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/zh/about'
     | '/zh/contact'
-    | '/zh/projects'
     | '/zh/services'
+    | '/projects'
     | '/zh'
     | '/api/public/contact'
+    | '/zh/projects/$slug'
+    | '/zh/projects'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
-    | '/projects'
     | '/services'
     | '/sitemap.xml'
+    | '/projects/$slug'
     | '/zh/about'
     | '/zh/contact'
-    | '/zh/projects'
     | '/zh/services'
+    | '/projects/'
     | '/zh/'
     | '/api/public/contact'
+    | '/zh/projects/$slug'
+    | '/zh/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
   ZhAboutRoute: typeof ZhAboutRoute
   ZhContactRoute: typeof ZhContactRoute
-  ZhProjectsRoute: typeof ZhProjectsRoute
   ZhServicesRoute: typeof ZhServicesRoute
+  ProjectsIndexRoute: typeof ProjectsIndexRoute
   ZhIndexRoute: typeof ZhIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ZhProjectsSlugRoute: typeof ZhProjectsSlugRoute
+  ZhProjectsIndexRoute: typeof ZhProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -200,13 +226,6 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -237,18 +256,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/': {
+      id: '/projects/'
+      path: '/projects'
+      fullPath: '/projects/'
+      preLoaderRoute: typeof ProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/zh/services': {
       id: '/zh/services'
       path: '/zh/services'
       fullPath: '/zh/services'
       preLoaderRoute: typeof ZhServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/zh/projects': {
-      id: '/zh/projects'
-      path: '/zh/projects'
-      fullPath: '/zh/projects'
-      preLoaderRoute: typeof ZhProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zh/contact': {
@@ -265,6 +284,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhAboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/$slug': {
+      id: '/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof ProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/projects/': {
+      id: '/zh/projects/'
+      path: '/zh/projects'
+      fullPath: '/zh/projects/'
+      preLoaderRoute: typeof ZhProjectsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/projects/$slug': {
+      id: '/zh/projects/$slug'
+      path: '/zh/projects/$slug'
+      fullPath: '/zh/projects/$slug'
+      preLoaderRoute: typeof ZhProjectsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -279,26 +319,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ProjectsSlugRoute: ProjectsSlugRoute,
   ZhAboutRoute: ZhAboutRoute,
   ZhContactRoute: ZhContactRoute,
-  ZhProjectsRoute: ZhProjectsRoute,
   ZhServicesRoute: ZhServicesRoute,
+  ProjectsIndexRoute: ProjectsIndexRoute,
   ZhIndexRoute: ZhIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ZhProjectsSlugRoute: ZhProjectsSlugRoute,
+  ZhProjectsIndexRoute: ZhProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

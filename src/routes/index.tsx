@@ -2,8 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HomePage } from "@/components/pages/HomePage";
 import { buildHead, LOCAL_BUSINESS_LD } from "@/components/site/SEO";
 import { IMAGES } from "@/data/content";
+import { portfolioQueryOptions } from "@/data/cms";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => {
+    context.queryClient.ensureQueryData(portfolioQueryOptions);
+  },
   head: () => buildHead({
     lang: "en", routeKey: "home",
     title: "Oceanicflo Construction — Richmond, BC | Integrated Project Delivery",
