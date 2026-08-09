@@ -11,18 +11,18 @@ export type HeroSlide = {
   titleEm: string;
   titleB: string;
   lead: string;
+  services?: readonly string[];
+  objectPosition?: string;
 };
 
 export function HeroSlider({
   lang,
   slides,
   ctaPrimary,
-  ctaSecondary,
 }: {
   lang: Lang;
   slides: readonly HeroSlide[];
   ctaPrimary: string;
-  ctaSecondary: string;
 }) {
   const [active, setActive] = useState(0);
 
@@ -67,6 +67,7 @@ export function HeroSlider({
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              objectPosition: s.objectPosition ?? "center center",
               display: "block",
               transform: i === active ? "scale(1.04)" : "scale(1)",
               transition: "transform 8000ms linear",
@@ -121,15 +122,44 @@ export function HeroSlider({
             <p style={{ marginTop: 28, maxWidth: 620, fontSize: 17, color: "rgba(243,241,235,0.86)", lineHeight: 1.75 }}>
               {s.lead}
             </p>
+            {s.services && s.services.length > 0 && (
+              <ul
+                style={{
+                  margin: "28px 0 0",
+                  padding: 0,
+                  listStyle: "none",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "10px 24px",
+                  maxWidth: 720,
+                }}
+              >
+                {s.services.map((svc) => (
+                  <li
+                    key={svc}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: "0.14em",
+                      textTransform: "uppercase",
+                      color: "rgba(243,241,235,0.92)",
+                    }}
+                  >
+                    <span style={{ width: 18, height: 2, background: "var(--of-yellow)" }} aria-hidden="true" />
+                    {svc}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
 
         <div style={{ marginTop: 36, display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
           <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary">
             {ctaPrimary} <ArrowRight />
-          </Link>
-          <Link to={lang === "en" ? "/projects" : "/zh/projects"} search={{ category: undefined }} className="btn btn-secondary-inverse">
-            {ctaSecondary} <ArrowRight />
           </Link>
         </div>
 
