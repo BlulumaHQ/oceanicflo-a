@@ -35,19 +35,17 @@ export function HomePage({ lang }: { lang: Lang }) {
         <style>{`@media (max-width: 900px){ .hero-datums { grid-template-columns: 1fr 1fr !important; } }`}</style>
       </section>
 
-      {/* Introduction */}
+      {/* Project Category */}
       <section style={{ background: "var(--of-paper)" }}>
         <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: "clamp(21px, 4.7vw, 71px)" }} className="two-col">
-            <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"}>{t.introEyebrow}</div>
-            <Datum>
-              <h2 style={{ fontFamily: lang === "en" ? "var(--of-font-sans)" : "var(--of-font-cjk)", fontSize: "clamp(1.75rem, 3vw, 2.75rem)", lineHeight: 1.25, letterSpacing: lang === "en" ? "-0.02em" : "-0.01em", fontWeight: 600, margin: 0, maxWidth: 820 }}>
-                {t.introBody}
-              </h2>
-              <p style={{ marginTop: 32, color: "var(--of-graphite)", fontSize: 17, lineHeight: 1.8, maxWidth: 720 }}>{t.introSecondary}</p>
-            </Datum>
+          <div style={{ marginBottom: 56 }}>
+            <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.workEyebrow}</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-end", justifyContent: "space-between" }}>
+              <h2 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0, maxWidth: 900 }}>{t.workHeading}</h2>
+              <Link to={lang === "en" ? "/projects" : "/zh/projects"} search={{ category: undefined }} className="btn btn-secondary">{cta.viewAll} <ArrowRight /></Link>
+            </div>
           </div>
-          <style>{`@media (max-width: 900px){ .two-col { grid-template-columns: 1fr !important; } }`}</style>
+          <CmsSelectedWork lang={lang} />
         </div>
       </section>
 
@@ -77,17 +75,19 @@ export function HomePage({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* Selected Work */}
+      {/* About Us */}
       <section style={{ background: "var(--of-paper)" }}>
         <div className="container-editorial" style={{ paddingBlock: "clamp(59px, 9.4vw, 104px)" }}>
-          <div style={{ marginBottom: 56 }}>
-            <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.workEyebrow}</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-end", justifyContent: "space-between" }}>
-              <h2 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0, maxWidth: 900 }}>{t.workHeading}</h2>
-              <Link to={lang === "en" ? "/projects" : "/zh/projects"} search={{ category: undefined }} className="btn btn-secondary">{cta.viewAll} <ArrowRight /></Link>
-            </div>
+          <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr", gap: "clamp(21px, 4.7vw, 71px)" }} className="two-col">
+            <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"}>{t.introEyebrow}</div>
+            <Datum>
+              <h2 style={{ fontFamily: lang === "en" ? "var(--of-font-sans)" : "var(--of-font-cjk)", fontSize: "clamp(1.75rem, 3vw, 2.75rem)", lineHeight: 1.25, letterSpacing: lang === "en" ? "-0.02em" : "-0.01em", fontWeight: 600, margin: 0, maxWidth: 820 }}>
+                {t.introBody}
+              </h2>
+              <p style={{ marginTop: 32, color: "var(--of-graphite)", fontSize: 17, lineHeight: 1.8, maxWidth: 720 }}>{t.introSecondary}</p>
+            </Datum>
           </div>
-          <CmsSelectedWork lang={lang} />
+          <style>{`@media (max-width: 900px){ .two-col { grid-template-columns: 1fr !important; } }`}</style>
         </div>
       </section>
 
@@ -138,14 +138,14 @@ const EN = {
     "Delivered across specialized industrial, commercial, residential, industrial, and institutional projects.",
     "Based in Richmond, British Columbia. Established 2009.",
   ],
-  introEyebrow: "INTRODUCTION · 01",
+  introEyebrow: "ABOUT US · 04",
   introBody: "Oceanicflo Construction is a company that provides construction management, project management, general contracting, design + build, and integrated project delivery services.",
   introSecondary:
     "The company works across specialized industrial, commercial, residential, industrial, and institutional projects — bringing owners, consultants, contractors, and operators into one coordinated working structure.",
   metricsEyebrow: "PORTFOLIO IN FIGURES · 02",
   servicesEyebrow: "SERVICES · 03",
   servicesHeading: "Five delivery structures for the way construction is organized today.",
-  workEyebrow: "PROJECT CATEGORY · 04",
+  workEyebrow: "PROJECT CATEGORY · 01",
   workHeading: "Recent projects across industrial, commercial, and institutional contexts.",
   galleryCaptions: [
     "SPECIALIZED INDUSTRIAL · 2023",
@@ -202,14 +202,14 @@ const ZH = {
     "涵蓋專業工業、商業、住宅、工業及機構等專案類型。",
     "總公司位於卑詩省列治文，創立於 2009 年。",
   ],
-  introEyebrow: "簡介 · 01",
+  introEyebrow: "關於我們 · 04",
   introBody: "Oceanicflo 是一家提供施工管理、專案管理、總承包、設計與施工整合，以及整合式專案交付服務的建築公司。",
   introSecondary:
     "服務涵蓋專業工業設施、商業空間、住宅、工業設施及機構設施等專案類型，讓業主、顧問、承包商及營運人員在同一合作架構下協同工作。",
   metricsEyebrow: "作品數據 · 02",
   servicesEyebrow: "服務 · 03",
   servicesHeading: "五種交付架構，對應現今施工組織的方式。",
-  workEyebrow: "精選專案 · 04",
+  workEyebrow: "專案類別 · 01",
   workHeading: "跨工業、商業及機構等領域的近期專案。",
   galleryCaptions: [
     "專業工業設施 · 2023",
