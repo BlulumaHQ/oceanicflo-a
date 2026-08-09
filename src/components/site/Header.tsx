@@ -47,7 +47,7 @@ export function Header({ lang }: { lang: Lang }) {
       >
         <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 78, paddingBlock: 6 }}>
           <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
-            <img src="/images/oceanicflo/oceanicflo-logo.jpg" alt="Oceanicflo Construction" width={240} height={72} />
+            <img src="/images/oceanicflo/oceanicflo-logo.svg" alt="Oceanicflo Construction" width={240} height={72} />
           </Link>
           <nav aria-label="Primary" className="primary-nav">
             {nav.map((n) => (

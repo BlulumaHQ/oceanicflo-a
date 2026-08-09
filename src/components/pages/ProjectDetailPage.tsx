@@ -50,7 +50,7 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
           <h1 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0 }}>
             {lang === "en" ? "Project not found." : "找不到專案。"}
           </h1>
-          <Link to={base} search={{}} className="btn btn-secondary" style={{ marginTop: 28 }}>
+          <Link to={base} search={{ category: undefined }} className="btn btn-secondary" style={{ marginTop: 28 }}>
             {lang === "en" ? "Back to all projects" : "返回所有專案"} <ArrowRight />
           </Link>
         </div>
@@ -76,7 +76,7 @@ export function ProjectDetailPage({ lang, slug }: { lang: Lang; slug: string }) 
     <SiteLayout lang={lang}>
       <section>
         <div className="container-editorial" style={{ paddingBlock: "clamp(40px, 5.6vw, 68px) clamp(20px, 2.6vw, 32px)" }}>
-          <Link to={base} search={{}} className="pd-back">
+          <Link to={base} search={{ category: undefined }} className="pd-back">
             <ChevronLeft /> {lang === "en" ? "ALL PROJECTS" : "所有專案"}
           </Link>
           <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginTop: 22 }}>
