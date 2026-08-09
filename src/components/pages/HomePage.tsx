@@ -19,7 +19,6 @@ export function HomePage({ lang }: { lang: Lang }) {
         lang={lang}
         slides={t.heroSlides}
         ctaPrimary={cta.discuss}
-        ctaSecondary={cta.viewWork}
       />
 
       <section>
@@ -107,6 +106,13 @@ const EN = {
       titleEm: "structured",
       titleB: "construction outcomes.",
       lead: "A Richmond-based construction company delivering integrated project delivery, design + build, general contracting, construction management, and project management.",
+      services: [
+        "INTEGRATED PROJECT DELIVERY (IPD)",
+        "DESIGN + BUILD",
+        "GENERAL CONTRACTING",
+        "CONSTRUCTION MANAGEMENT",
+        "PROJECT MANAGEMENT",
+      ],
     },
     {
       image: IMAGES.gallery[0],
@@ -116,6 +122,7 @@ const EN = {
       titleEm: "working",
       titleB: "structure.",
       lead: "Owners, consultants, contractors, and operators inside a single delivery framework — from design and fabrication through to construction and handover.",
+      objectPosition: "75% center",
     },
   ],
   heroEyebrow: "OCEANICFLO · RICHMOND, BRITISH COLUMBIA · EST. 2009",
