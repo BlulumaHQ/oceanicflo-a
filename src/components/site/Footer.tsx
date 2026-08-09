@@ -42,8 +42,10 @@ export function Footer({ lang }: { lang: Lang }) {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div className="container-editorial" style={{ paddingBlock: 22, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, fontSize: 12, color: "var(--of-concrete)" }}>
           <div>
-            © {year} Oceanicflo Construction. All rights reserved. | Web Design by{" "}
-            <a href="https://sonykundesign.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--of-bg)", textDecoration: "underline", textUnderlineOffset: 3 }}>Sonykun Design</a>
+            <span style={{ color: "var(--of-concrete)" }}>© {year} Oceanicflo Construction. All rights reserved.</span>
+            <span style={{ color: "rgba(243,241,235,0.35)" }}> | Web Design by{" "}
+              <a href="https://sonykundesign.com" target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>Sonykun Design</a>
+            </span>
           </div>
           <div style={{ letterSpacing: "0.14em" }}>RICHMOND · BC · CANADA</div>
         </div>
