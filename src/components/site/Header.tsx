@@ -45,7 +45,7 @@ export function Header({ lang }: { lang: Lang }) {
           transition: "background 300ms ease, border-color 300ms ease",
         }}
       >
-        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 78, paddingBlock: 6 }}>
+        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 100, paddingBlock: 6 }}>
           <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
             <img src="/images/oceanicflo/oceanicflo-logo-header.svg" alt="Oceanicflo Construction" width={280} height={90} />
           </Link>
