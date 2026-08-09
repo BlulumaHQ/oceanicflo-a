@@ -85,7 +85,7 @@ export function HomePage({ lang }: { lang: Lang }) {
             <div className={lang === "en" ? "eyebrow" : "eyebrow-cjk"} style={{ marginBottom: 20 }}>{t.workEyebrow}</div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "flex-end", justifyContent: "space-between" }}>
               <h2 className={lang === "en" ? "display-en" : "display-cjk"} style={{ margin: 0, maxWidth: 900 }}>{t.workHeading}</h2>
-              <Link to={lang === "en" ? "/projects" : "/zh/projects"} className="btn btn-secondary">{cta.viewAll} <ArrowRight /></Link>
+              <Link to={lang === "en" ? "/projects" : "/zh/projects"} search={{ category: undefined }} className="btn btn-secondary">{cta.viewAll} <ArrowRight /></Link>
             </div>
           </div>
           <CmsSelectedWork lang={lang} />
