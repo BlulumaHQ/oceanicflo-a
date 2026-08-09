@@ -128,7 +128,7 @@ export function HeroSlider({
           <Link to={lang === "en" ? "/contact" : "/zh/contact"} className="btn btn-primary">
             {ctaPrimary} <ArrowRight />
           </Link>
-          <Link to={lang === "en" ? "/projects" : "/zh/projects"} search={{}} className="btn btn-secondary-inverse">
+          <Link to={lang === "en" ? "/projects" : "/zh/projects"} className="btn btn-secondary-inverse">
             {ctaSecondary} <ArrowRight />
           </Link>
         </div>
