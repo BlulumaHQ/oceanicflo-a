@@ -45,9 +45,9 @@ export function Header({ lang }: { lang: Lang }) {
           transition: "background 300ms ease, border-color 300ms ease",
         }}
       >
-        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 78, paddingBlock: 6 }}>
+        <div className="container-editorial" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 100, paddingBlock: 6 }}>
           <Link to={lang === "en" ? "/" : "/zh"} className="brand-mark" aria-label="Oceanicflo Construction — home">
-            <img src="/images/oceanicflo/oceanicflo-logo.svg" alt="Oceanicflo Construction" width={240} height={72} />
+            <img src="/images/oceanicflo/oceanicflo-logo-header.svg" alt="Oceanicflo Construction" width={280} height={90} />
           </Link>
           <nav aria-label="Primary" className="primary-nav">
             {nav.map((n) => (
@@ -80,8 +80,8 @@ export function Header({ lang }: { lang: Lang }) {
         .skip-link { position: absolute; left: -9999px; top: 0; background: var(--of-ink); color: var(--of-bg); padding: 8px 14px; z-index: 100; }
         .skip-link:focus { left: 12px; top: 12px; }
         .brand-mark { display: inline-flex; text-decoration: none; }
-        .brand-mark img { display: block; height: 66px; width: auto; object-fit: contain; }
-        @media (max-width: 560px) { .brand-mark img { height: 52px; } }
+        .brand-mark img { display: block; height: 88px; width: auto; object-fit: contain; }
+        @media (max-width: 560px) { .brand-mark img { height: 66px; } }
         .primary-nav { display: flex; gap: 34px; align-items: center; }
         .header-tail { display: flex; align-items: center; gap: 18px; }
         .lang-switch { color: var(--of-ink); text-decoration: none; font-size: 12px; letter-spacing: 0.14em; font-weight: 600; }
