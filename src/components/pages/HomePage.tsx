@@ -170,6 +170,13 @@ const ZH = {
       titleEm: "有條理地",
       titleB: "完成施工。",
       lead: "Oceanicflo 是一家位於列治文的建築公司，提供整合式專案交付、設計與施工整合、總承包、施工管理及專案管理服務。",
+      services: [
+        "整合式專案交付 (IPD)",
+        "設計與施工整合",
+        "總承包",
+        "施工管理",
+        "專案管理",
+      ],
     },
     {
       image: IMAGES.gallery[0],
@@ -179,6 +186,7 @@ const ZH = {
       titleEm: "協同",
       titleB: "架構下完成。",
       lead: "業主、顧問、承包商及營運人員在同一交付架構中合作，從設計、製作到施工與交付皆保持一致。",
+      objectPosition: "75% center",
     },
   ],
   heroEyebrow: "OCEANICFLO · 卑詩省列治文 · 創立於 2009",
