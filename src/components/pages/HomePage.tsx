@@ -138,7 +138,7 @@ const EN = {
   metricsEyebrow: "PORTFOLIO IN FIGURES · 02",
   servicesEyebrow: "SERVICES · 03",
   servicesHeading: "Five delivery structures for the way construction is organized today.",
-  workEyebrow: "SELECTED WORK · 04",
+  workEyebrow: "PROJECT CATEGORY · 04",
   workHeading: "Recent projects across industrial, commercial, and institutional contexts.",
   galleryCaptions: [
     "SPECIALIZED INDUSTRIAL · 2023",
