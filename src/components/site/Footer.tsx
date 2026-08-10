@@ -13,9 +13,9 @@ export function Footer({ lang }: { lang: Lang }) {
       <div style={{ height: 1, background: "var(--of-yellow)", opacity: 0.6 }} />
       <div className="container-editorial" style={{ paddingBlock: "72px 32px" }}>
         <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 32 }}>
-          <div style={{ gridColumn: "span 4" }} className="footer-col">
-            <img src="/images/oceanicflo/oceanicflo-logo-footer.svg" alt="Oceanicflo Construction" style={{ display: "block", height: 100, width: "auto" }} />
-            <p style={{ marginTop: 24, color: "var(--of-concrete)", maxWidth: 340, fontSize: 14, lineHeight: 1.7 }}>{t.statement}</p>
+          <div style={{ gridColumn: "span 4" }} className="footer-col footer-col-logo">
+            <img src="/images/oceanicflo/oceanicflo-logo-footer.svg" alt="Oceanicflo Construction" className="footer-logo" />
+            <p className="footer-statement">{t.statement}</p>
           </div>
           <div style={{ gridColumn: "span 2" }} className="footer-col">
             <div className="foot-label">{t.navLabel}</div>
@@ -40,7 +40,7 @@ export function Footer({ lang }: { lang: Lang }) {
         </div>
       </div>
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <div className="container-editorial" style={{ paddingBlock: 22, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, fontSize: 12, color: "var(--of-concrete)" }}>
+        <div className="container-editorial footer-bar" style={{ paddingBlock: 22, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, fontSize: 12, color: "var(--of-concrete)" }}>
           <div>
             <span style={{ color: "var(--of-concrete)" }}>© {year} Oceanicflo Construction. All rights reserved.</span>
             <span style={{ color: "rgba(243,241,235,0.35)" }}> | Web Design by{" "}
@@ -51,6 +51,8 @@ export function Footer({ lang }: { lang: Lang }) {
         </div>
       </div>
       <style>{`
+        .footer-logo { display: block; height: 100px; width: auto; }
+        .footer-statement { margin-top: 24px; color: var(--of-concrete); max-width: 340px; font-size: 14px; line-height: 1.7; }
         .foot-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--of-concrete); margin-bottom: 16px; }
         html[lang^="zh"] .foot-label { letter-spacing: 0.08em; text-transform: none; }
         .foot-link { color: var(--of-bg); text-decoration: none; opacity: 0.85; transition: color 200ms, opacity 200ms; font-size: 14px; }
@@ -58,8 +60,19 @@ export function Footer({ lang }: { lang: Lang }) {
         .foot-cta { color: var(--of-yellow); text-decoration: none; font-weight: 600; margin-top: 6px; display: inline-flex; align-items: center; gap: 10px; font-size: 14px; }
         .foot-lang { color: var(--of-concrete); text-decoration: none; font-size: 12px; letter-spacing: 0.12em; font-weight: 600; }
         .foot-lang.active { color: var(--of-yellow); }
-        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } .footer-col { grid-column: span 1 !important; } }
-        @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 900px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; }
+          .footer-col { grid-column: span 1 !important; }
+        }
+        @media (max-width: 560px) {
+          .container-editorial { padding-inline: clamp(18px, 5vw, 24px); }
+          .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 28px 20px; }
+          .footer-col-logo { grid-column: span 2 !important; }
+          .footer-logo { height: 72px; }
+          .footer-statement { margin-top: 16px; font-size: 13px; line-height: 1.6; max-width: 100%; }
+          .foot-label { margin-bottom: 10px; }
+          .footer-bar { padding-block: 16px; flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
       `}</style>
     </footer>
   );
