@@ -1,5 +1,13 @@
-import { describe, expect, test } from "bun:test";
+import { describe, it as test } from "node:test";
+import { strict as assert } from "node:assert";
 import { applyDomainIndexingPolicy, isPlatformIndexingHost } from "./domain-indexing";
+
+function expect(actual: unknown) {
+  return {
+    toBe: (expected: unknown) => assert.equal(actual, expected),
+    toBeNull: () => assert.equal(actual, null),
+  };
+}
 
 describe("domain-aware noindex", () => {
   for (const suffix of ["lovable.app", "workers.dev", "pages.dev", "netlify.app"]) {
